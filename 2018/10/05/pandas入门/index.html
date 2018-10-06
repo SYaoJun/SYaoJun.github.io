@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="情感," />
+  <meta name="keywords" content="pandas," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="简介作品：《从你的全世界路过》作者： 张嘉佳出版社：湖南文艺出版社出版时间：2013年">
-<meta name="keywords" content="情感">
+<meta name="description" content="简介Series一维数组DataFrame二维数组12import pandas as pdimport numpy as np 通过列表创建Series12s = pd.Series([3,7,9,12])print(s)">
+<meta name="keywords" content="pandas">
 <meta property="og:type" content="article">
-<meta property="og:title" content="《从你的全世界路过》后记">
-<meta property="og:url" content="http://SYaoJun.github.io/2018/10/04/从你的全世界路过/index.html">
+<meta property="og:title" content="Pandas入门">
+<meta property="og:url" content="http://SYaoJun.github.io/2018/10/05/pandas入门/index.html">
 <meta property="og:site_name" content="Hysteriz&#39;s Home">
-<meta property="og:description" content="简介作品：《从你的全世界路过》作者： 张嘉佳出版社：湖南文艺出版社出版时间：2013年">
+<meta property="og:description" content="简介Series一维数组DataFrame二维数组12import pandas as pdimport numpy as np 通过列表创建Series12s = pd.Series([3,7,9,12])print(s)">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-10-05T10:24:37.913Z">
+<meta property="og:updated_time" content="2018-10-05T12:44:22.404Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="《从你的全世界路过》后记">
-<meta name="twitter:description" content="简介作品：《从你的全世界路过》作者： 张嘉佳出版社：湖南文艺出版社出版时间：2013年">
+<meta name="twitter:title" content="Pandas入门">
+<meta name="twitter:description" content="简介Series一维数组DataFrame二维数组12import pandas as pdimport numpy as np 通过列表创建Series12s = pd.Series([3,7,9,12])print(s)">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://SYaoJun.github.io/2018/10/04/从你的全世界路过/"/>
+  <link rel="canonical" href="http://SYaoJun.github.io/2018/10/05/pandas入门/"/>
 
 
 
 
 
-  <title>《从你的全世界路过》后记 | Hysteriz's Home</title>
+  <title>Pandas入门 | Hysteriz's Home</title>
   
 
 
@@ -268,7 +268,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://SYaoJun.github.io/2018/10/04/从你的全世界路过/">
+    <link itemprop="mainEntityOfPage" href="http://SYaoJun.github.io/2018/10/05/pandas入门/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lucius">
@@ -285,7 +285,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">《从你的全世界路过》后记</h1>
+          <h1 class="post-title" itemprop="name headline">Pandas入门</h1>
         
 
         <div class="post-meta">
@@ -297,8 +297,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-04T22:27:03+08:00">
-                2018-10-04
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-05T20:30:52+08:00">
+                2018-10-05
               </time>
             
 
@@ -320,8 +320,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/读书/" itemprop="url" rel="index">
-                    <span itemprop="name">读书</span>
+                  <a href="/categories/机器学习/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
                   </a>
                 </span>
 
@@ -357,8 +357,14 @@
       
 
       
-        <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>作品：《从你的全世界路过》<br>作者： 张嘉佳<br>出版社：湖南文艺出版社<br>出版时间：2013年<br><a id="more"></a></p>
-<h2 id="读后感"><a href="#读后感" class="headerlink" title="读后感"></a>读后感</h2><h2 id="摘抄"><a href="#摘抄" class="headerlink" title="摘抄"></a>摘抄</h2><p>1.在很长一段时间里，我继续没有早饭吃。没有早饭吃的时候我就想起一个女生。</p>
+        <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>Series一维数组<br>DataFrame二维数组<br><figure class="highlight elm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br></pre></td></tr></table></figure></p>
+<h2 id="通过列表创建Series"><a href="#通过列表创建Series" class="headerlink" title="通过列表创建Series"></a>通过列表创建Series</h2><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s = pd.Series([<span class="number">3</span>,<span class="number">7</span>,<span class="number">9</span>,<span class="number">12</span>])</span><br><span class="line">print(s)</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h2 id="通过ndarray创建Series"><a href="#通过ndarray创建Series" class="headerlink" title="通过ndarray创建Series"></a>通过ndarray创建Series</h2><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import random </span><br><span class="line">s=pd.Series(np<span class="selector-class">.random</span><span class="selector-class">.randn</span>(<span class="number">5</span>),index =[<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>,<span class="string">'d'</span>,<span class="string">'e'</span>])</span><br><span class="line"><span class="function"><span class="title">print</span><span class="params">(s)</span></span></span><br></pre></td></tr></table></figure>
+<h2 id="通过字典创建Series"><a href="#通过字典创建Series" class="headerlink" title="通过字典创建Series"></a>通过字典创建Series</h2><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">d = &#123;<span class="string">'a'</span>:<span class="number">1</span>,<span class="string">'b'</span>:<span class="number">2</span>,<span class="string">'c'</span>:<span class="number">3</span>,<span class="string">'d'</span>:<span class="number">4</span>,<span class="string">'e'</span>:<span class="number">5</span>&#125;</span><br><span class="line">s = pd.Series(d)</span><br><span class="line"><span class="function"><span class="title">print</span><span class="params">(s)</span></span></span><br><span class="line">s = s.drop(<span class="string">'e'</span>) #删除索引为e的值</span><br></pre></td></tr></table></figure>
+<h2 id="通过Numpy创建DataFrame"><a href="#通过Numpy创建DataFrame" class="headerlink" title="通过Numpy创建DataFrame"></a>通过Numpy创建DataFrame</h2><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">dates = pd.dates_range(<span class="string">'20181005'</span>,periods =<span class="number">6</span>)</span><br><span class="line">arr = np<span class="selector-class">.random</span><span class="selector-class">.randn</span>(<span class="number">6</span>,<span class="number">4</span>)</span><br><span class="line"><span class="attribute">columns</span> = [<span class="string">'A'</span>,<span class="string">'B'</span>,<span class="string">'C'</span>,<span class="string">'D'</span>]</span><br><span class="line">df = pd.DataFrame(arr, index=dates, <span class="attribute">columns</span> = columns)</span><br><span class="line"><span class="function"><span class="title">print</span><span class="params">(df)</span></span></span><br></pre></td></tr></table></figure>
+<h2 id="常用函数"><a href="#常用函数" class="headerlink" title="常用函数"></a>常用函数</h2><figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">df.<span class="keyword">index</span> <span class="meta">#行名索引</span></span><br><span class="line">df.columns <span class="meta">#列名索引</span></span><br><span class="line">df.values </span><br><span class="line">df.dtypes <span class="meta">#查看数据类型，object是字符串型</span></span><br><span class="line">df.head(x) <span class="meta">#查看前x行,不填则默认为5</span></span><br><span class="line">df.tail(x) <span class="meta">#查看后x行</span></span><br><span class="line">df.describe() <span class="meta">#查看统计数据</span></span><br><span class="line">df.T <span class="meta">#转置</span></span><br><span class="line">df.isnull() <span class="meta">#判断dataframe中元素是否为空，若为空则返回true</span></span><br><span class="line">df.mean() <span class="meta">#求均值</span></span><br><span class="line">df[<span class="string">'age'</span>].<span class="keyword">sum</span>() <span class="meta">#对age该列求和</span></span><br></pre></td></tr></table></figure>
+<h2 id="提升"><a href="#提升" class="headerlink" title="提升"></a>提升</h2><figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df2=df1.copy() <span class="comment">#复制</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -376,7 +382,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/情感/" rel="tag"><i class="fa fa-tag"></i> 情感</a>
+            <a href="/tags/pandas/" rel="tag"><i class="fa fa-tag"></i> pandas</a>
           
         </div>
       
@@ -389,8 +395,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/10/04/马尔科夫决策过程/" rel="next" title="马尔科夫决策过程">
-                <i class="fa fa-chevron-left"></i> 马尔科夫决策过程
+              <a href="/2018/10/05/tkinter入门/" rel="next" title="Tkinter入门">
+                <i class="fa fa-chevron-left"></i> Tkinter入门
               </a>
             
           </div>
@@ -399,8 +405,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/10/05/tkinter入门/" rel="prev" title="Tkinter入门">
-                Tkinter入门 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/10/06/tensorflow入门/" rel="prev" title="tensorflow入门笔记">
+                tensorflow入门笔记 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -587,7 +593,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#读后感"><span class="nav-number">2.</span> <span class="nav-text">读后感</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#摘抄"><span class="nav-number">3.</span> <span class="nav-text">摘抄</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#通过列表创建Series"><span class="nav-number">2.</span> <span class="nav-text">通过列表创建Series</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#通过ndarray创建Series"><span class="nav-number">3.</span> <span class="nav-text">通过ndarray创建Series</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#通过字典创建Series"><span class="nav-number">4.</span> <span class="nav-text">通过字典创建Series</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#通过Numpy创建DataFrame"><span class="nav-number">5.</span> <span class="nav-text">通过Numpy创建DataFrame</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用函数"><span class="nav-number">6.</span> <span class="nav-text">常用函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#提升"><span class="nav-number">7.</span> <span class="nav-text">提升</span></a></li></ol></div>
             
 
           </div>

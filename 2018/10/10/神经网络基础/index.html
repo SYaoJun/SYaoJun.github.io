@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="tensorflow," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="简单入门123456import tensorflow as tfa = tf.constant([1.0,2.0])b = tf.constant([3.0,4.0])result = a+bwith tf.Session() as sess:    print(sess.run(result))">
+<meta name="keywords" content="tensorflow">
+<meta property="og:type" content="article">
+<meta property="og:title" content="神经网络入门">
+<meta property="og:url" content="http://SYaoJun.github.io/2018/10/10/神经网络基础/index.html">
+<meta property="og:site_name" content="Hysteriz&#39;s Home">
+<meta property="og:description" content="简单入门123456import tensorflow as tfa = tf.constant([1.0,2.0])b = tf.constant([3.0,4.0])result = a+bwith tf.Session() as sess:    print(sess.run(result))">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-10-06T14:40:22.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="神经网络入门">
+<meta name="twitter:description" content="简单入门123456import tensorflow as tfa = tf.constant([1.0,2.0])b = tf.constant([3.0,4.0])result = a+bwith tf.Session() as sess:    print(sess.run(result))">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://SYaoJun.github.io/2018/10/10/神经网络基础/"/>
+
+
+
+
+
+  <title>神经网络入门 | Hysteriz's Home</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+<div class="bg_content">
+  <canvas id="canvas"></canvas>
+</div>
+
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hysteriz's Home</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">ML/Writing</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://SYaoJun.github.io/2018/10/10/神经网络基础/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lucius">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hysteriz's Home">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">神经网络入门</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-10T10:59:20+08:00">
+                2018-10-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/深度学习/" itemprop="url" rel="index">
+                    <span itemprop="name">深度学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="简单入门"><a href="#简单入门" class="headerlink" title="简单入门"></a>简单入门</h2><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">import tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="keyword">a</span> = tf.<span class="built_in">constant</span>([<span class="number">1.0</span>,<span class="number">2.0</span>])</span><br><span class="line">b = tf.<span class="built_in">constant</span>([<span class="number">3.0</span>,<span class="number">4.0</span>])</span><br><span class="line"><span class="built_in">result</span> = <span class="keyword">a</span>+b</span><br><span class="line"><span class="keyword">with</span> tf.Session() <span class="keyword">as</span> sess:</span><br><span class="line">    print(sess.run(<span class="built_in">result</span>))</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h2 id="两层简单神经网络"><a href="#两层简单神经网络" class="headerlink" title="两层简单神经网络"></a>两层简单神经网络</h2><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#coding: utf-8</span></span><br><span class="line"><span class="comment">#两层简单神经网络（全连接）</span></span><br><span class="line">import tensorflow as tf</span><br><span class="line"></span><br><span class="line"><span class="comment">#定义输入和参数</span></span><br><span class="line"><span class="attribute">x</span>=tf.constant([[0.7,0.5]])</span><br><span class="line"><span class="attribute">W1</span>=tf.Variable(tf.random_normal([2,3], <span class="attribute">stddev</span>=1, seed =1))</span><br><span class="line"><span class="attribute">W2</span>=tf.Variable(tf.random_normal([3,1], <span class="attribute">stddev</span>=1, <span class="attribute">seed</span>=1))</span><br><span class="line"></span><br><span class="line"><span class="comment">#定义前向传播过程</span></span><br><span class="line">a = tf.matmul(x, W1)</span><br><span class="line">y = tf.matmul(a, W2)</span><br><span class="line"></span><br><span class="line"><span class="comment">#用会话计算结果</span></span><br><span class="line">with tf.Session() as sess:</span><br><span class="line">    init_op = tf.global_variables_initializer()</span><br><span class="line">    sess.<span class="builtin-name">run</span>(init_op)</span><br><span class="line">    <span class="builtin-name">print</span>(<span class="string">"y = "</span>,sess.<span class="builtin-name">run</span>(y))</span><br></pre></td></tr></table></figure>
+<h2 id="用placeholder实现喂一组数据"><a href="#用placeholder实现喂一组数据" class="headerlink" title="用placeholder实现喂一组数据"></a>用placeholder实现喂一组数据</h2><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x=tf.placeholder(tf.float32, shape=(<span class="number">1</span>,<span class="number">2</span>))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"y = "</span>,sess.run(y, feed_dict =&#123;x: <span class="string">[[0.7, 0.5]]</span>&#125;))</span><br></pre></td></tr></table></figure>
+<h2 id="用placeholder实现喂多组数据"><a href="#用placeholder实现喂多组数据" class="headerlink" title="用placeholder实现喂多组数据"></a>用placeholder实现喂多组数据</h2><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x=tf.placeholder(tf.float32, shape=(None,<span class="number">2</span>))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"y = "</span>,sess.run(y, feed_dict =&#123;x: <span class="string">[[0.7, 0.5],[0.2,0.3],[0.3,0.4],[0.4,0.5]]</span>&#125;))</span><br></pre></td></tr></table></figure>
+<h2 id="小例子"><a href="#小例子" class="headerlink" title="小例子"></a>小例子</h2><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#coding:utf-8</span></span><br><span class="line">import tensorflow as tf</span><br><span class="line">import numpy as np</span><br><span class="line"><span class="attribute">BATCH_SIZE</span>=8 #一次喂神经网络的数量</span><br><span class="line">seed = 23455</span><br><span class="line"></span><br><span class="line"><span class="comment">#基于seed产生随机数</span></span><br><span class="line">R = np.random.RandomState(seed)</span><br><span class="line"><span class="comment">#生成32x2的矩阵</span></span><br><span class="line">X = R.rand(32,2) </span><br><span class="line">Y = [[int(x0 + x1 &lt; 1)] <span class="keyword">for</span> (x0,x1)<span class="keyword">in</span> X]</span><br><span class="line"><span class="comment">#print("X:\n",X)</span></span><br><span class="line"><span class="comment">#print("Y:\n",Y)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#定义神经网络的输入、参数和输出，定义前向传播过程</span></span><br><span class="line">x = tf.placeholder(tf.float32,shape=(None,2))</span><br><span class="line">y_ = tf.placeholder(tf.float32,shape=(None,1))</span><br><span class="line"></span><br><span class="line">w1 = tf.Variable(tf.random_normal([2,3], <span class="attribute">stddev</span>=1, <span class="attribute">seed</span>=1))</span><br><span class="line">w2 = tf.Variable(tf.random_normal([3,1], <span class="attribute">stddev</span>=1, <span class="attribute">seed</span>=1))</span><br><span class="line"></span><br><span class="line">a = tf.matmul(x,w1)</span><br><span class="line">y = tf.matmul(a,w2)</span><br><span class="line"></span><br><span class="line"><span class="comment">#定义损失函数及反向传播方法</span></span><br><span class="line">loss = tf.reduce_mean(tf.square(y - y_))</span><br><span class="line">train_step = tf.train.GradientDescentOptimizer(0.001).minimize(loss)</span><br><span class="line"><span class="comment">#tran_step = tf.train.MomentumOptimizer(0.001,0.9).minimize(loss)</span></span><br><span class="line"><span class="comment">#train_step = tf.train.AdamOptimizer(0.001).minimize(loss)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#生成会话，训练STEPS轮</span></span><br><span class="line">with tf.Session() as sess:</span><br><span class="line">    <span class="attribute">init</span>=tf.global_variables_initializer()</span><br><span class="line">    sess.<span class="builtin-name">run</span>(init)</span><br><span class="line">    <span class="builtin-name">print</span>(<span class="string">"w1:\n"</span>,sess.<span class="builtin-name">run</span>(w1))</span><br><span class="line">    <span class="builtin-name">print</span>(<span class="string">"w2:\n"</span>,sess.<span class="builtin-name">run</span>(w2))</span><br><span class="line">    <span class="builtin-name">print</span>(<span class="string">"\n"</span>)</span><br><span class="line">    </span><br><span class="line">    #训练模型</span><br><span class="line">    <span class="attribute">STEPS</span>=3000</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(STEPS):</span><br><span class="line">        start = (i<span class="number">*BA</span>TCH_SIZE) %32</span><br><span class="line">        end = start +BATCH_SIZE</span><br><span class="line">        sess.<span class="builtin-name">run</span>(train_step, feed_dict=&#123;x: X[start:end], y_:Y[start:end]&#125;)</span><br><span class="line">        <span class="keyword">if</span> i%<span class="attribute">500</span>==0:</span><br><span class="line">            total_loss =sess.<span class="builtin-name">run</span>(loss,feed_dict=&#123;x:X,y_:Y&#125;)</span><br><span class="line">            <span class="builtin-name">print</span>(<span class="string">"After %d training step(s), loss on all data is %g"</span>%(i,total_loss))</span><br><span class="line">    #输出训练后的参数取值</span><br><span class="line">    <span class="builtin-name">print</span>(<span class="string">"\n"</span>)</span><br><span class="line">    <span class="builtin-name">print</span>(<span class="string">"w1:\n"</span>,sess.<span class="builtin-name">run</span>(w1))</span><br><span class="line">    <span class="builtin-name">print</span>(<span class="string">"w2:\n"</span>,sess.<span class="builtin-name">run</span>(w2))</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/tensorflow/" rel="tag"><i class="fa fa-tag"></i> tensorflow</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/10/10/tensorflow入门(莫烦版)/" rel="next" title="tensorflow入门莫烦版">
+                <i class="fa fa-chevron-left"></i> tensorflow入门莫烦版
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/10/10/从你的全世界路过/" rel="prev" title="《从你的全世界路过》后记">
+                《从你的全世界路过》后记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.gif"
+                alt="Lucius" />
+            
+              <p class="site-author-name" itemprop="name">Lucius</p>
+              <p class="site-description motion-element" itemprop="description">Only those who can stand silence and solitude will stand out among the crowds.</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/SYaoJun" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:940334249@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com/yourname" target="_blank" title="Twitter">
+                      
+                        <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://youtube.com/yourname" target="_blank" title="YouTube">
+                      
+                        <i class="fa fa-fw fa-youtube"></i>YouTube</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.csdn.net/SYaoJun" title="csdn" target="_blank">csdn</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.timilong.com/" title="timilong" target="_blank">timilong</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://coodemonkey.github.io/" title="zhubao" target="_blank">zhubao</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简单入门"><span class="nav-number">1.</span> <span class="nav-text">简单入门</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#两层简单神经网络"><span class="nav-number">2.</span> <span class="nav-text">两层简单神经网络</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用placeholder实现喂一组数据"><span class="nav-number">3.</span> <span class="nav-text">用placeholder实现喂一组数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用placeholder实现喂多组数据"><span class="nav-number">4.</span> <span class="nav-text">用placeholder实现喂多组数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小例子"><span class="nav-number">5.</span> <span class="nav-text">小例子</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Lucius</span>
+
+  
+</div>
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+
+  
+
+  
+
+</body>
+</html>
+<script type="text/javascript" src="/js/src/dynamic_bg.js"></script>
+<!-- ҳ����С���� -->
+<script type="text/javascript" src="/js/src/clicklove.js"></script>

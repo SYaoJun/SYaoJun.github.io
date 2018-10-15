@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="makefile," />
+  <meta name="keywords" content="knn," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="Makefile将多个.c合并到一起，从下往上编译makefile文件反映了整个项目中各个模块的依赖关系建立一个makefile文件，不需要后缀名，然后输入make执行">
-<meta name="keywords" content="makefile">
+<meta name="description" content="KNN是唯一不需要训练过程的机器学习算法">
+<meta name="keywords" content="knn">
 <meta property="og:type" content="article">
-<meta property="og:title" content="makefile入门">
-<meta property="og:url" content="http://SYaoJun.github.io/2018/10/11/makefile入门/index.html">
+<meta property="og:title" content="KNN算法">
+<meta property="og:url" content="http://SYaoJun.github.io/2018/10/14/K近邻算法/index.html">
 <meta property="og:site_name" content="hysteriz&#39;s Home">
-<meta property="og:description" content="Makefile将多个.c合并到一起，从下往上编译makefile文件反映了整个项目中各个模块的依赖关系建立一个makefile文件，不需要后缀名，然后输入make执行">
+<meta property="og:description" content="KNN是唯一不需要训练过程的机器学习算法">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-10-11T00:23:03.811Z">
+<meta property="og:updated_time" content="2018-10-14T08:29:45.137Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="makefile入门">
-<meta name="twitter:description" content="Makefile将多个.c合并到一起，从下往上编译makefile文件反映了整个项目中各个模块的依赖关系建立一个makefile文件，不需要后缀名，然后输入make执行">
+<meta name="twitter:title" content="KNN算法">
+<meta name="twitter:description" content="KNN是唯一不需要训练过程的机器学习算法">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://SYaoJun.github.io/2018/10/11/makefile入门/"/>
+  <link rel="canonical" href="http://SYaoJun.github.io/2018/10/14/K近邻算法/"/>
 
 
 
 
 
-  <title>makefile入门 | hysteriz's Home</title>
+  <title>KNN算法 | hysteriz's Home</title>
   
 
 
@@ -302,7 +302,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://SYaoJun.github.io/2018/10/11/makefile入门/">
+    <link itemprop="mainEntityOfPage" href="http://SYaoJun.github.io/2018/10/14/K近邻算法/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="hysteriz">
@@ -319,7 +319,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">makefile入门</h1>
+          <h1 class="post-title" itemprop="name headline">KNN算法</h1>
         
 
         <div class="post-meta">
@@ -331,8 +331,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-11T08:23:03+08:00">
-                2018-10-11
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-14T16:15:58+08:00">
+                2018-10-14
               </time>
             
 
@@ -354,8 +354,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/其他/" itemprop="url" rel="index">
-                    <span itemprop="name">其他</span>
+                  <a href="/categories/机器学习/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
                   </a>
                 </span>
 
@@ -391,8 +391,11 @@
       
 
       
-        <p>Makefile将多个.c合并到一起，从下往上编译<br>makefile文件反映了整个项目中各个模块的依赖关系<br>建立一个makefile文件，不需要后缀名，然后输入make执行<br><a id="more"></a><br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span><span class="selector-class">.target</span> ：dependencies</span><br><span class="line">&lt;Tab&gt; command</span><br><span class="line"><span class="number">2</span><span class="selector-class">.test</span>: test.c</span><br><span class="line">	gcc test<span class="selector-class">.c</span> -o test</span><br><span class="line"><span class="number">3</span><span class="selector-class">.main</span> :  main<span class="selector-class">.c</span>   tool.o</span><br><span class="line">	gcc main<span class="selector-class">.c</span> tool<span class="selector-class">.o</span> -o main</span><br><span class="line">tool<span class="selector-class">.o</span>: tool.c</span><br><span class="line">	gcc -c tool.c</span><br><span class="line">clean:</span><br><span class="line">	rm *<span class="selector-class">.o</span>  main</span><br></pre></td></tr></table></figure></p>
-<p>4.把gcc改为用变量表示<br> C=gcc<br> 用$(C) 替换原位置的gcc<br> 5.同时处理多个目标<br> all: main_max, main_min </p>
+        <p>KNN是唯一不需要训练过程的机器学习算法<br><a id="more"></a></p>
+<h2 id="KNN算法简介"><a href="#KNN算法简介" class="headerlink" title="KNN算法简介"></a>KNN算法简介</h2><p>KNN算法属于有监督学习，分类算法。</p>
+<p>对未知类别属性的数据集中的每个点依次执行以下操作：<br>1.计算已知类别数据集中的点与当前点之间的距离<br>2.按照距离递增次序排序<br>3.选取与当前点距离最小的k个点<br>4.确定点k个点所在类别的出现频率<br>5.返回前k个点出现频率最高的类别作为当前的预测分类</p>
+<h2 id="调用sklearn中的KNN实现"><a href="#调用sklearn中的KNN实现" class="headerlink" title="调用sklearn中的KNN实现"></a>调用sklearn中的KNN实现</h2><figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">from</span> sklearn <span class="keyword">import</span> datasets</span><br><span class="line"><span class="title">from</span> sklearn.neighbors <span class="keyword">import</span> KNeighborsClassifier</span><br><span class="line"><span class="title">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line"></span><br><span class="line"><span class="title">iris</span> = datasets.load_iris()</span><br><span class="line"><span class="class"><span class="keyword">data</span>=iris.<span class="keyword">data</span></span></span><br><span class="line"><span class="title">target</span>=iris.target</span><br><span class="line"><span class="type">X_train</span>,<span class="type">X_test</span>,y_train,y_test=train_test_split(<span class="class"><span class="keyword">data</span>,target,test_size=0.25,random_state=33)</span></span><br><span class="line"><span class="title">knn</span> = <span class="type">KNeighborsClassifier</span>()</span><br><span class="line"></span><br><span class="line"><span class="title">knn</span>.fit(<span class="type">X_train</span>,y_train)</span><br><span class="line"><span class="title">print</span>(knn.score(<span class="type">X_test</span>,y_test))</span><br></pre></td></tr></table></figure>
+<h2 id="自己编写代码实现KNN算法"><a href="#自己编写代码实现KNN算法" class="headerlink" title="自己编写代码实现KNN算法"></a>自己编写代码实现KNN算法</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!coding:utf-8</span></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> math</span><br><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> Counter</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">KNN</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,k)</span>:</span></span><br><span class="line">        <span class="string">'''初始化KNN分类器'''</span></span><br><span class="line">        self.k = k</span><br><span class="line">        self._X_train = <span class="keyword">None</span></span><br><span class="line">        self._y_train = <span class="keyword">None</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">fit</span><span class="params">(self, X_train, y_train)</span>:</span></span><br><span class="line">        <span class="string">'''根据训练数据集X_train和y_train训练分类器'''</span></span><br><span class="line"></span><br><span class="line">        self._X_train = X_train</span><br><span class="line">        self._y_train = y_train</span><br><span class="line">        <span class="keyword">return</span> self</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">predict</span><span class="params">(self, X_predict)</span>:</span></span><br><span class="line">        <span class="string">'''给定待测数据集X_predict，返回表示X_predict的结果向量'''</span></span><br><span class="line">        </span><br><span class="line">        y_predict =[self._predict(x) <span class="keyword">for</span> x <span class="keyword">in</span> X_predict]</span><br><span class="line">        <span class="keyword">return</span> np.array(y_predict)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">_predict</span><span class="params">(self, x)</span>:</span></span><br><span class="line">        <span class="string">'''给定单个待测数据x,返回x的预测结果值'''</span></span><br><span class="line"></span><br><span class="line">        distances = [math.sqrt(np.sum((x_ - x)**<span class="number">2</span>)) <span class="keyword">for</span> x_ <span class="keyword">in</span> self._X_train]</span><br><span class="line">        nearest = np.argsort(distances)</span><br><span class="line">        topK_y=[self._y_train[i] <span class="keyword">for</span> i <span class="keyword">in</span> nearest[:self.k]]</span><br><span class="line">        votes=Counter(topK_y)</span><br><span class="line">        <span class="keyword">return</span> votes.most_common(<span class="number">1</span>)[<span class="number">0</span>][<span class="number">0</span>]</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -434,7 +437,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/makefile/" rel="tag"><i class="fa fa-tag"></i> makefile</a>
+            <a href="/tags/knn/" rel="tag"><i class="fa fa-tag"></i> knn</a>
           
         </div>
       
@@ -447,8 +450,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/10/11/linux/" rel="next" title="linux命令">
-                <i class="fa fa-chevron-left"></i> linux命令
+              <a href="/2018/10/11/opencv入门/" rel="next" title="opencv入门笔记">
+                <i class="fa fa-chevron-left"></i> opencv入门笔记
               </a>
             
           </div>
@@ -457,8 +460,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/10/11/opencv入门/" rel="prev" title="opencv入门笔记">
-                opencv入门笔记 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/10/14/train_test_split/" rel="prev" title="训练测试数据分离">
+                训练测试数据分离 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -511,8 +514,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -638,6 +650,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#KNN算法简介"><span class="nav-number">1.</span> <span class="nav-text">KNN算法简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#调用sklearn中的KNN实现"><span class="nav-number">2.</span> <span class="nav-text">调用sklearn中的KNN实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自己编写代码实现KNN算法"><span class="nav-number">3.</span> <span class="nav-text">自己编写代码实现KNN算法</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

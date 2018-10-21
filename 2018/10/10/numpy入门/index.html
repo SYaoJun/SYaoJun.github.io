@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="hysteriz&#39;s Home">
 <meta property="og:description" content="numpy简单操作">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-10-06T10:05:54.000Z">
+<meta property="og:updated_time" content="2018-10-18T06:18:10.802Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="numpy入门笔记">
 <meta name="twitter:description" content="numpy简单操作">
@@ -393,6 +393,7 @@
       
         <h2 id="numpy简单操作"><a href="#numpy简单操作" class="headerlink" title="numpy简单操作"></a>numpy简单操作</h2><a id="more"></a>
 <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">#模块numpy的使用</span><br><span class="line">import numpy as np</span><br><span class="line">data1 = np.array([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>])</span><br><span class="line"><span class="function"><span class="title">print</span><span class="params">(data1)</span></span></span><br><span class="line">data2 = np.array([[<span class="number">1</span>,<span class="number">2</span>],[<span class="number">3</span>,<span class="number">4</span>]])</span><br><span class="line"><span class="function"><span class="title">print</span><span class="params">(data2)</span></span></span><br><span class="line">#维度</span><br><span class="line"><span class="function"><span class="title">print</span><span class="params">(data1.shape)</span></span></span><br><span class="line"><span class="function"><span class="title">print</span><span class="params">(data2.shape)</span></span></span><br><span class="line"><span class="selector-id">#zeros</span> ones</span><br><span class="line"><span class="function"><span class="title">print</span><span class="params">(np.zeros([<span class="number">2</span>,<span class="number">3</span>])</span></span>)</span><br><span class="line"><span class="function"><span class="title">print</span><span class="params">(np.ones([<span class="number">2</span>,<span class="number">3</span>])</span></span>)</span><br><span class="line">#改</span><br><span class="line">data2[<span class="number">1</span>,<span class="number">0</span>] = <span class="number">5</span></span><br><span class="line"><span class="function"><span class="title">print</span><span class="params">(data2)</span></span></span><br><span class="line">#查</span><br><span class="line"><span class="function"><span class="title">print</span><span class="params">(data2[<span class="number">1</span>,<span class="number">1</span>])</span></span></span><br><span class="line">#基本运算</span><br><span class="line">data3 = np.ones([<span class="number">2</span>,<span class="number">3</span>])</span><br><span class="line"><span class="function"><span class="title">print</span><span class="params">(data3*<span class="number">2</span>)</span></span> #每项都乘以常数<span class="number">2</span></span><br><span class="line"><span class="function"><span class="title">print</span><span class="params">(data3/<span class="number">3</span>)</span></span> #每项都除以常数<span class="number">3</span></span><br><span class="line"><span class="function"><span class="title">print</span><span class="params">(data3+<span class="number">2</span>)</span></span> #每项都加上常数<span class="number">2</span></span><br><span class="line">#矩阵加法乘法</span><br><span class="line">data4=np.array([[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],[<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]])</span><br><span class="line"><span class="function"><span class="title">print</span><span class="params">(data3+data4)</span></span> #对应项相加</span><br><span class="line"><span class="function"><span class="title">print</span><span class="params">(data3*data4)</span></span> #对应项相乘</span><br></pre></td></tr></table></figure>
+<h2 id="array的合并与分隔"><a href="#array的合并与分隔" class="headerlink" title="array的合并与分隔"></a>array的合并与分隔</h2><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">X=np.arange(<span class="number">10</span>)</span><br><span class="line">X.reshape(<span class="number">2</span>,<span class="number">-1</span>) <span class="comment">#行为2，列由计算机自己算</span></span><br><span class="line">X.ndim <span class="comment">#几维</span></span><br><span class="line">X.size <span class="comment">#总元素个数</span></span><br><span class="line">X[::<span class="number">-1</span>,::<span class="number">-1</span>] <span class="comment">#矩阵反转</span></span><br><span class="line">np.concatenate([A,A],axis=<span class="number">1</span>) <span class="comment">#合并两个相同维度矩阵在列上</span></span><br><span class="line">np.vstack([A,Z]) <span class="comment">#合并在行上</span></span><br><span class="line">np.hsatck([A,z]) <span class="comment">#合并在列上</span></span><br><span class="line">A1,A2=np.<span class="built_in">split</span>(A,[<span class="number">2</span>],axis=<span class="number">1</span>)<span class="comment">#在列上分割</span></span><br><span class="line"><span class="built_in">upper</span>,<span class="built_in">lower</span>=np.vsplit(A,[<span class="number">2</span>]) <span class="comment">#在行上分割，以2行为分割点</span></span><br><span class="line">left,<span class="literal">right</span>=np.hsplit(A,[<span class="number">2</span>]) <span class="comment">#在列上分割</span></span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -446,14 +447,18 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2018/10/10/pandas入门/" rel="next" title="Pandas入门">
+                <i class="fa fa-chevron-left"></i> Pandas入门
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/10/10/matplotlib入门/" rel="prev" title="matplotlib入门">
-                matplotlib入门 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/10/10/从你的全世界路过/" rel="prev" title="《从你的全世界路过》后记">
+                《从你的全世界路过》后记 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -535,7 +540,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -546,7 +551,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -652,7 +657,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#numpy简单操作"><span class="nav-number">1.</span> <span class="nav-text">numpy简单操作</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#numpy简单操作"><span class="nav-number">1.</span> <span class="nav-text">numpy简单操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#array的合并与分隔"><span class="nav-number">2.</span> <span class="nav-text">array的合并与分隔</span></a></li></ol></div>
             
 
           </div>

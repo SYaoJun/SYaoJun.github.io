@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="knn," />
+  <meta name="keywords" content="KNN," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="KNN是唯一不需要训练过程的机器学习算法">
-<meta name="keywords" content="knn">
+<meta name="description" content="直道相思了无益，未妨惆怅是清狂。">
+<meta name="keywords" content="KNN">
 <meta property="og:type" content="article">
-<meta property="og:title" content="KNN算法">
+<meta property="og:title" content="k近邻算法">
 <meta property="og:url" content="http://SYaoJun.github.io/2018/10/14/K近邻算法/index.html">
 <meta property="og:site_name" content="hysteriz&#39;s Home">
-<meta property="og:description" content="KNN是唯一不需要训练过程的机器学习算法">
+<meta property="og:description" content="直道相思了无益，未妨惆怅是清狂。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-10-14T08:29:45.137Z">
+<meta property="og:updated_time" content="2018-10-21T14:50:27.277Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="KNN算法">
-<meta name="twitter:description" content="KNN是唯一不需要训练过程的机器学习算法">
+<meta name="twitter:title" content="k近邻算法">
+<meta name="twitter:description" content="直道相思了无益，未妨惆怅是清狂。">
 
 
 
@@ -126,7 +126,7 @@
 
 
 
-  <title>KNN算法 | hysteriz's Home</title>
+  <title>k近邻算法 | hysteriz's Home</title>
   
 
 
@@ -319,7 +319,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">KNN算法</h1>
+          <h1 class="post-title" itemprop="name headline">k近邻算法</h1>
         
 
         <div class="post-meta">
@@ -391,11 +391,16 @@
       
 
       
-        <p>KNN是唯一不需要训练过程的机器学习算法<br><a id="more"></a></p>
-<h2 id="KNN算法简介"><a href="#KNN算法简介" class="headerlink" title="KNN算法简介"></a>KNN算法简介</h2><p>KNN算法属于有监督学习，分类算法。</p>
-<p>对未知类别属性的数据集中的每个点依次执行以下操作：<br>1.计算已知类别数据集中的点与当前点之间的距离<br>2.按照距离递增次序排序<br>3.选取与当前点距离最小的k个点<br>4.确定点k个点所在类别的出现频率<br>5.返回前k个点出现频率最高的类别作为当前的预测分类</p>
-<h2 id="调用sklearn中的KNN实现"><a href="#调用sklearn中的KNN实现" class="headerlink" title="调用sklearn中的KNN实现"></a>调用sklearn中的KNN实现</h2><figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">from</span> sklearn <span class="keyword">import</span> datasets</span><br><span class="line"><span class="title">from</span> sklearn.neighbors <span class="keyword">import</span> KNeighborsClassifier</span><br><span class="line"><span class="title">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line"></span><br><span class="line"><span class="title">iris</span> = datasets.load_iris()</span><br><span class="line"><span class="class"><span class="keyword">data</span>=iris.<span class="keyword">data</span></span></span><br><span class="line"><span class="title">target</span>=iris.target</span><br><span class="line"><span class="type">X_train</span>,<span class="type">X_test</span>,y_train,y_test=train_test_split(<span class="class"><span class="keyword">data</span>,target,test_size=0.25,random_state=33)</span></span><br><span class="line"><span class="title">knn</span> = <span class="type">KNeighborsClassifier</span>()</span><br><span class="line"></span><br><span class="line"><span class="title">knn</span>.fit(<span class="type">X_train</span>,y_train)</span><br><span class="line"><span class="title">print</span>(knn.score(<span class="type">X_test</span>,y_test))</span><br></pre></td></tr></table></figure>
-<h2 id="自己编写代码实现KNN算法"><a href="#自己编写代码实现KNN算法" class="headerlink" title="自己编写代码实现KNN算法"></a>自己编写代码实现KNN算法</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!coding:utf-8</span></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> math</span><br><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> Counter</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">KNN</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,k)</span>:</span></span><br><span class="line">        <span class="string">'''初始化KNN分类器'''</span></span><br><span class="line">        self.k = k</span><br><span class="line">        self._X_train = <span class="keyword">None</span></span><br><span class="line">        self._y_train = <span class="keyword">None</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">fit</span><span class="params">(self, X_train, y_train)</span>:</span></span><br><span class="line">        <span class="string">'''根据训练数据集X_train和y_train训练分类器'''</span></span><br><span class="line"></span><br><span class="line">        self._X_train = X_train</span><br><span class="line">        self._y_train = y_train</span><br><span class="line">        <span class="keyword">return</span> self</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">predict</span><span class="params">(self, X_predict)</span>:</span></span><br><span class="line">        <span class="string">'''给定待测数据集X_predict，返回表示X_predict的结果向量'''</span></span><br><span class="line">        </span><br><span class="line">        y_predict =[self._predict(x) <span class="keyword">for</span> x <span class="keyword">in</span> X_predict]</span><br><span class="line">        <span class="keyword">return</span> np.array(y_predict)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">_predict</span><span class="params">(self, x)</span>:</span></span><br><span class="line">        <span class="string">'''给定单个待测数据x,返回x的预测结果值'''</span></span><br><span class="line"></span><br><span class="line">        distances = [math.sqrt(np.sum((x_ - x)**<span class="number">2</span>)) <span class="keyword">for</span> x_ <span class="keyword">in</span> self._X_train]</span><br><span class="line">        nearest = np.argsort(distances)</span><br><span class="line">        topK_y=[self._y_train[i] <span class="keyword">for</span> i <span class="keyword">in</span> nearest[:self.k]]</span><br><span class="line">        votes=Counter(topK_y)</span><br><span class="line">        <span class="keyword">return</span> votes.most_common(<span class="number">1</span>)[<span class="number">0</span>][<span class="number">0</span>]</span><br></pre></td></tr></table></figure>
+        <p>直道相思了无益，未妨惆怅是清狂。<br><a id="more"></a></p>
+<h2 id="KNN算法简介"><a href="#KNN算法简介" class="headerlink" title="KNN算法简介"></a>KNN算法简介</h2><p>KNN是唯一不需要训练过程的机器学习算法<br>KNN算法属于有监督学习，分类算法。</p>
+<h2 id="基本思想"><a href="#基本思想" class="headerlink" title="基本思想"></a>基本思想</h2><p>对未知类别属性的数据集中的每个点依次执行以下操作：<br>1.计算已知类别数据集中的点与当前点之间的距离<br>2.按照距离递增次序排序<br>3.选取与当前点距离最小的k个点<br>4.确定点k个点所在类别的出现频率<br>5.返回前k个点出现频率最高的类别作为当前的预测分类</p>
+<h2 id="数据集"><a href="#数据集" class="headerlink" title="数据集"></a>数据集</h2><figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="title">from</span> sklearn <span class="keyword">import</span> datasets</span><br><span class="line"><span class="title">iris</span> = datasets.load_iris()</span><br><span class="line"><span class="type">X</span> = iris.<span class="class"><span class="keyword">data</span></span></span><br><span class="line"><span class="title">y</span> = iris.target</span><br></pre></td></tr></table></figure>
+<h2 id="训练数据与测试数据分离"><a href="#训练数据与测试数据分离" class="headerlink" title="训练数据与测试数据分离"></a>训练数据与测试数据分离</h2><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.model_selection import train_test_split</span><br><span class="line">X_train,X_test,y_train,<span class="attribute">y_test</span>=train_test_split(X,y,test_size=0.2,random_state=666)</span><br></pre></td></tr></table></figure>
+<h2 id="调用KNN算法"><a href="#调用KNN算法" class="headerlink" title="调用KNN算法"></a>调用KNN算法</h2><figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">from sklearn.neighbors <span class="built_in">import</span> KNeighborsClassifier</span><br><span class="line"><span class="attr">KNN</span> = KNeighborsClassifier(<span class="attr">n_neighbors=6)</span></span><br><span class="line">KNN.fit(X_train,y_train)</span><br></pre></td></tr></table></figure>
+<h2 id="分类准确度"><a href="#分类准确度" class="headerlink" title="分类准确度"></a>分类准确度</h2><figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">from sklearn.metrics import accuracy_score</span><br><span class="line">y_predict=clf.predict(X_test)</span><br><span class="line">ac = accuracy_score(y_test, y_predict)</span><br></pre></td></tr></table></figure>
+<h2 id="网格搜索"><a href="#网格搜索" class="headerlink" title="网格搜索"></a>网格搜索</h2><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">from sklearn<span class="selector-class">.model_selection</span> import GridSearchCV</span><br><span class="line">param_grid =[</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">'weights'</span>:[<span class="string">'uniform'</span>],</span><br><span class="line">        <span class="string">'n_neighbors'</span>: [<span class="selector-tag">i</span> <span class="keyword">for</span> <span class="selector-tag">i</span> <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">11</span>)]</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">'weights'</span>:[<span class="string">'distance'</span>],</span><br><span class="line">        <span class="string">'n_neighbors'</span>:[<span class="selector-tag">i</span> <span class="keyword">for</span> <span class="selector-tag">i</span> <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">11</span>)],</span><br><span class="line">        <span class="string">'p'</span>: [<span class="selector-tag">i</span> <span class="keyword">for</span> <span class="selector-tag">i</span> <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">6</span>)],</span><br><span class="line">    &#125; </span><br><span class="line">]</span><br><span class="line">my_clf = KNeighborsClassifier()</span><br><span class="line">grid_search =GridSearchCV(my_clf, param_grid,n_jobs=-<span class="number">1</span>)</span><br><span class="line">grid_search.fit(x_train,y_train)</span><br></pre></td></tr></table></figure>
+<h2 id="数据归一化-Feature-Scaling"><a href="#数据归一化-Feature-Scaling" class="headerlink" title="数据归一化(Feature Scaling)"></a>数据归一化(Feature Scaling)</h2><h3 id="最值归一化-Normalization"><a href="#最值归一化-Normalization" class="headerlink" title="最值归一化(Normalization)"></a>最值归一化(Normalization)</h3><h3 id="均值方差归一化-Standardization"><a href="#均值方差归一化-Standardization" class="headerlink" title="均值方差归一化(Standardization)"></a>均值方差归一化(Standardization)</h3><figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">from sklearn.preprocessing import StandardScaler</span><br><span class="line">stds=StandardScaler()</span><br><span class="line">stds.fit(X_train)</span><br><span class="line">mean = stds.mean_</span><br><span class="line">std = stds.scale_</span><br><span class="line">X_train_standard = stds.transform(X_train)</span><br><span class="line">X_test_standard = stds.transform(X_test)</span><br><span class="line">from sklearn.neighbors import KNeighborsClassifier</span><br><span class="line">clfs = KNeighborsClassifier(n_neighbors = 3)</span><br><span class="line">clfs.fit(X_train_standard,y_train)</span><br><span class="line">clfs.score(X_test_standard,y_test)</span><br></pre></td></tr></table></figure>
+<h2 id="更多有关K近邻"><a href="#更多有关K近邻" class="headerlink" title="更多有关K近邻"></a>更多有关K近邻</h2><p>解决分类问题<br>天然可以解决多分类问题<br>思想简单，效果强大<br>还可以使用k近邻算法解决回归问题KNeighborsRegressor<br>最大缺点：<br>1.如果训练集有m个样本，n个特征，则预测没一个新的数据，需要O(mn)<br>2.高度数据相关<br>3.预测结果不具有可解释性<br>4.维数灾难</p>
 
       
     </div>
@@ -437,7 +442,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/knn/" rel="tag"><i class="fa fa-tag"></i> knn</a>
+            <a href="/tags/KNN/" rel="tag"><i class="fa fa-tag"></i> KNN</a>
           
         </div>
       
@@ -460,8 +465,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/10/14/train_test_split/" rel="prev" title="训练测试数据分离">
-                训练测试数据分离 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/10/21/纪念RNG陨落于八强/" rel="prev" title="纪念RNG陨落于八强">
+                纪念RNG陨落于八强 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -543,7 +548,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -565,7 +570,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -660,7 +665,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#KNN算法简介"><span class="nav-number">1.</span> <span class="nav-text">KNN算法简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#调用sklearn中的KNN实现"><span class="nav-number">2.</span> <span class="nav-text">调用sklearn中的KNN实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自己编写代码实现KNN算法"><span class="nav-number">3.</span> <span class="nav-text">自己编写代码实现KNN算法</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#KNN算法简介"><span class="nav-number">1.</span> <span class="nav-text">KNN算法简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基本思想"><span class="nav-number">2.</span> <span class="nav-text">基本思想</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据集"><span class="nav-number">3.</span> <span class="nav-text">数据集</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#训练数据与测试数据分离"><span class="nav-number">4.</span> <span class="nav-text">训练数据与测试数据分离</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#调用KNN算法"><span class="nav-number">5.</span> <span class="nav-text">调用KNN算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分类准确度"><span class="nav-number">6.</span> <span class="nav-text">分类准确度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#网格搜索"><span class="nav-number">7.</span> <span class="nav-text">网格搜索</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据归一化-Feature-Scaling"><span class="nav-number">8.</span> <span class="nav-text">数据归一化(Feature Scaling)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#最值归一化-Normalization"><span class="nav-number">8.1.</span> <span class="nav-text">最值归一化(Normalization)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#均值方差归一化-Standardization"><span class="nav-number">8.2.</span> <span class="nav-text">均值方差归一化(Standardization)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更多有关K近邻"><span class="nav-number">9.</span> <span class="nav-text">更多有关K近邻</span></a></li></ol></div>
             
 
           </div>
